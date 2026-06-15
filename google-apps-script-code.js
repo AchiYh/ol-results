@@ -42,7 +42,7 @@ function doPost(e) {
       data.grade || '',
       data.province || '',
       data.district || '',
-      data.whatsapp || '',
+      "'" + (data.whatsapp || ''),
       data.comments || ''
     ]);
     
