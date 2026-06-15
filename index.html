@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2025/2026 O/L ප්‍රතිඵල — Prabuddha Sampath Mathematics</title>
+  <meta name="description" content="2025/2026 සාමාන්‍ය පෙළ ගණිතය ප්‍රතිඵල ඇතුළත් කිරීමේ පෝරමය — Prabuddha Sampath Mathematics">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>📐</text></svg>">
+</head>
+<body>
+
+  <!-- Background Effects -->
+  <div class="bg-effects" aria-hidden="true">
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-orb bg-orb--3"></div>
+  </div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Main Form -->
+  <main class="form-container">
+    <!-- Header Banner Image -->
+    <div class="banner-wrapper">
+      <img src="header_banner.png" alt="Prabuddha Sampath Mathematics Banner" class="header-banner">
+    </div>
+
+    <!-- Header -->
+    <header class="form-header">
+      <div class="form-header__top">
+        <div class="teacher-profile">
+          <img src="teacher_avatar.jpg" alt="Prabuddha Sampath" class="teacher-avatar">
+          <div class="teacher-profile__info">
+            <h1 class="form-header__title">සා/පෙළ ගණිතය ප්‍රතිඵල</h1>
+            <p class="form-header__subtitle">O/L Mathematics Results</p>
+            <p class="form-header__teacher">Prabuddha Sampath</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-header__meta">
+        <div class="form-header__badge">
+          <span class="form-header__badge-dot"></span>
+          දැන් භාරගනිමින්
+        </div>
+        <p class="form-header__year">2025 / 2026</p>
+      </div>
+    </header>
+
+    <form id="resultsForm" novalidate autocomplete="off">
+
+      <!-- Card 1: Personal Info -->
+      <section class="form-card">
+        <h2 class="form-card__title">
+          <span class="form-card__icon">👤</span>
+          පුද්ගලික තොරතුරු
+        </h2>
+
+        <!-- Name -->
+        <div class="form-group">
+          <label class="form-label" for="studentName">
+            නම <span class="form-label__required">*</span>
+            <span class="form-label__en">Name</span>
+          </label>
+          <input
+            type="text"
+            id="studentName"
+            class="form-input"
+            placeholder="ඔබගේ සම්පූර්ණ නම ඇතුළත් කරන්න"
+            required
+          >
+          <div class="form-error" id="studentNameError">
+            <span class="form-error__icon">⚠</span>
+            <span>කරුණාකර ඔබගේ නම ඇතුළත් කරන්න</span>
+          </div>
+        </div>
+
+        <!-- School -->
+        <div class="form-group">
+          <label class="form-label" for="school">
+            පාසල <span class="form-label__required">*</span>
+            <span class="form-label__en">School</span>
+          </label>
+          <input
+            type="text"
+            id="school"
+            class="form-input"
+            placeholder="ඔබගේ පාසලේ නම ඇතුළත් කරන්න"
+            required
+          >
+          <div class="form-error" id="schoolError">
+            <span class="form-error__icon">⚠</span>
+            <span>කරුණාකර පාසලේ නම ඇතුළත් කරන්න</span>
+          </div>
+        </div>
+
+        <!-- Index Number -->
+        <div class="form-group">
+          <label class="form-label" for="indexNumber">
+            විභාග අංකය <span class="form-label__required">*</span>
+            <span class="form-label__en">Index Number</span>
+          </label>
+          <input
+            type="text"
+            id="indexNumber"
+            class="form-input"
+            placeholder="උදා: 1234567"
+            required
+          >
+          <div class="form-error" id="indexNumberError">
+            <span class="form-error__icon">⚠</span>
+            <span>කරුණාකර විභාග අංකය ඇතුළත් කරන්න</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card 2: Grade -->
+      <section class="form-card">
+        <h2 class="form-card__title">
+          <span class="form-card__icon">📊</span>
+          ගණිතය ප්‍රතිඵලය
+        </h2>
+
+        <div class="form-group">
+          <label class="form-label">
+            ගණිතය විෂයේ සාමාර්ථය <span class="form-label__required">*</span>
+            <span class="form-label__en">Maths Grade</span>
+          </label>
+
+          <div class="grade-cards" id="gradeCards" role="radiogroup" aria-label="Mathematics Grade">
+            <!-- Grade A -->
+            <div class="grade-card grade-card--A">
+              <input type="radio" name="grade" id="gradeA" value="A" required>
+              <label class="grade-card__label" for="gradeA">
+                <span class="grade-card__letter">A</span>
+                <span class="grade-card__text">සාමාර්ථ</span>
+              </label>
+            </div>
+
+            <!-- Grade B -->
+            <div class="grade-card grade-card--B">
+              <input type="radio" name="grade" id="gradeB" value="B">
+              <label class="grade-card__label" for="gradeB">
+                <span class="grade-card__letter">B</span>
+                <span class="grade-card__text">ඉහළ</span>
+              </label>
+            </div>
+
+            <!-- Grade C -->
+            <div class="grade-card grade-card--C">
+              <input type="radio" name="grade" id="gradeC" value="C">
+              <label class="grade-card__label" for="gradeC">
+                <span class="grade-card__letter">C</span>
+                <span class="grade-card__text">සාමාන්‍ය</span>
+              </label>
+            </div>
+
+            <!-- Grade S -->
+            <div class="grade-card grade-card--S">
+              <input type="radio" name="grade" id="gradeS" value="S">
+              <label class="grade-card__label" for="gradeS">
+                <span class="grade-card__letter">S</span>
+                <span class="grade-card__text">සම්මත</span>
+              </label>
+            </div>
+
+            <!-- Grade F -->
+            <div class="grade-card grade-card--F">
+              <input type="radio" name="grade" id="gradeF" value="F">
+              <label class="grade-card__label" for="gradeF">
+                <span class="grade-card__letter">F</span>
+                <span class="grade-card__text">අසමත්</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-error" id="gradeError">
+            <span class="form-error__icon">⚠</span>
+            <span>කරුණාකර ඔබගේ ගණිතය ප්‍රතිඵලය තෝරන්න</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card 3: Location -->
+      <section class="form-card">
+        <h2 class="form-card__title">
+          <span class="form-card__icon">📍</span>
+          ස්ථානය
+        </h2>
+
+        <!-- Province -->
+        <div class="form-group">
+          <label class="form-label" for="province">
+            පළාත <span class="form-label__required">*</span>
+            <span class="form-label__en">Province</span>
+          </label>
+          <select id="province" class="form-select" required>
+            <option value="" disabled selected>පළාත තෝරන්න</option>
+          </select>
+          <div class="form-error" id="provinceError">
+            <span class="form-error__icon">⚠</span>
+            <span>කරුණාකර පළාත තෝරන්න</span>
+          </div>
+        </div>
+
+        <!-- District -->
+        <div class="form-group">
+          <label class="form-label" for="district">
+            දිස්ත්‍රික්කය <span class="form-label__required">*</span>
+            <span class="form-label__en">District</span>
+          </label>
+          <select id="district" class="form-select" required disabled>
+            <option value="" disabled selected>මුලින්ම පළාත තෝරන්න</option>
+          </select>
+          <div class="form-error" id="districtError">
+            <span class="form-error__icon">⚠</span>
+            <span>කරුණාකර දිස්ත්‍රික්කය තෝරන්න</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card 4: Contact & Comments -->
+      <section class="form-card">
+        <h2 class="form-card__title">
+          <span class="form-card__icon">📱</span>
+          සම්බන්ධතා තොරතුරු
+        </h2>
+
+        <!-- WhatsApp -->
+        <div class="form-group">
+          <label class="form-label" for="whatsapp">
+            WhatsApp අංකය <span class="form-label__required">*</span>
+            <span class="form-label__en">WhatsApp Number</span>
+          </label>
+          <div class="phone-input-group">
+            <div class="phone-prefix">
+              <span class="phone-prefix__flag">🇱🇰</span>
+              +94
+            </div>
+            <input
+              type="tel"
+              id="whatsapp"
+              class="form-input"
+              placeholder="7X XXX XXXX"
+              maxlength="12"
+              required
+            >
+          </div>
+          <div class="form-error" id="whatsappError">
+            <span class="form-error__icon">⚠</span>
+            <span>කරුණාකර වලංගු දුරකතන අංකයක් ඇතුළත් කරන්න</span>
+          </div>
+        </div>
+
+        <!-- Comments -->
+        <div class="form-group">
+          <label class="form-label" for="comments">
+            අදහස් හෝ යෝජනා
+            <span class="form-label__en">Comments (Optional)</span>
+          </label>
+          <textarea
+            id="comments"
+            class="form-textarea"
+            placeholder="ඔබගේ අදහස් මෙහි ලියන්න..."
+            rows="3"
+          ></textarea>
+        </div>
+      </section>
+
+      <!-- Submit -->
+      <div class="submit-section">
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <div class="submit-btn__content">
+            <span class="submit-btn__icon">🚀</span>
+            <span class="submit-btn__text">ප්‍රතිඵල ඉදිරිපත් කරන්න</span>
+            <div class="submit-btn__spinner"></div>
+          </div>
+        </button>
+      </div>
+
+    </form>
+
+    <!-- Footer -->
+    <footer class="form-footer">
+      <p class="form-footer__text">
+        Made with <span class="form-footer__heart">❤</span> by Prabuddha Sampath
+      </p>
+    </footer>
+  </main>
+
+  <!-- Success Overlay -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="confetti-container" id="confettiContainer" aria-hidden="true"></div>
+    <div class="success-card">
+      <div class="success-icon">✅</div>
+      <h2>සාර්ථකයි!</h2>
+      <p>ඔබගේ ප්‍රතිඵල සාර්ථකව ඉදිරිපත් කරන ලදී.<br>ස්තූතියි! 🎉</p>
+      <button class="success-btn" id="successCloseBtn">නව ප්‍රතිඵලයක් ඇතුළත් කරන්න</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

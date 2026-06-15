@@ -1,0 +1,76 @@
+// =============================================
+// Google Apps Script — O/L Results Form Backend
+// =============================================
+// 
+// 📋 SETUP INSTRUCTIONS:
+// 
+// 1. Open your Google Sheet (create new one if needed)
+// 2. Add these column headers in Row 1:
+//    A: Timestamp | B: Name | C: School | D: Index Number | 
+//    E: Grade | F: Province | G: District | H: WhatsApp | I: Comments
+//
+// 3. Go to Extensions → Apps Script
+// 4. Delete any existing code and paste ALL of this code
+// 5. Click 💾 Save
+// 6. Click Deploy → New deployment
+//    - Type: Web app
+//    - Description: "O/L Results Form"
+//    - Execute as: Me
+//    - Who has access: Anyone
+// 7. Click Deploy → Authorize the app when prompted
+// 8. Copy the Web App URL
+// 9. Paste the URL into script.js (replace YOUR_APPS_SCRIPT_WEB_APP_URL_HERE)
+//
+// That's it! 🎉
+// =============================================
+
+// Handle POST requests from the form
+function doPost(e) {
+  try {
+    // Parse the incoming JSON data
+    var data = JSON.parse(e.postData.contents);
+    
+    // Get the active spreadsheet (the one this script is attached to)
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    
+    // Append a new row with the form data
+    sheet.appendRow([
+      data.timestamp || new Date().toLocaleString(),
+      data.name || '',
+      data.school || '',
+      data.indexNumber || '',
+      data.grade || '',
+      data.province || '',
+      data.district || '',
+      data.whatsapp || '',
+      data.comments || ''
+    ]);
+    
+    // Return success response
+    return ContentService
+      .createTextOutput(JSON.stringify({ 
+        status: 'success', 
+        message: 'Data saved successfully' 
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch (error) {
+    // Return error response
+    return ContentService
+      .createTextOutput(JSON.stringify({ 
+        status: 'error', 
+        message: error.toString() 
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// Handle GET requests (for testing)
+function doGet(e) {
+  return ContentService
+    .createTextOutput(JSON.stringify({ 
+      status: 'active', 
+      message: 'O/L Results Form API is running!' 
+    }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
