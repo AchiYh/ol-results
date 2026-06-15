@@ -476,6 +476,8 @@
       tableBody.innerHTML = '';
       tableLoader.style.display = 'flex';
       
+      const enteredPasscode = passcodeField.value;
+
       // If Web App URL is still placeholder, load mock data for testing/demo
       if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE' || APPS_SCRIPT_URL === '') {
         console.log("Using Mock Data (Demo Mode)");
@@ -495,18 +497,21 @@
       }
 
       try {
-        const response = await fetch(APPS_SCRIPT_URL);
+        // Send passcode to backend directly to verify securely
+        const response = await fetch(`${APPS_SCRIPT_URL}?passcode=${encodeURIComponent(enteredPasscode)}`);
         const resJson = await response.json();
         
         if (resJson.status === 'success') {
           allData = resJson.data || [];
           renderDashboard(allData);
         } else {
-          alert('Failed to load data from server.');
+          alert('ප්‍රවේශය අනුමත නොවේ: වැරදි මුරපදයක් හෝ සේවාදායකයේ දෝෂයකි (Access Denied: Invalid passcode or server error).');
+          gateOverlay.style.display = 'flex';
+          dashboard.style.display = 'none';
         }
       } catch (err) {
         console.error(err);
-        alert('Connection error. Could not connect to Google Apps Script.');
+        alert('සේවාදායකය සමඟ සම්බන්ධ වීමට නොහැක (Could not connect to Google Sheets server).');
       } finally {
         tableLoader.style.display = 'none';
       }

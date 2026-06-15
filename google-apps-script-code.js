@@ -65,9 +65,22 @@ function doPost(e) {
   }
 }
 
-// Handle GET requests (for dashboard data retrieval)
+// Handle GET requests (for dashboard data retrieval with passcode verification)
 function doGet(e) {
   try {
+    // Verify passcode parameter
+    var passcode = e.parameter.passcode;
+    var correctPasscode = "maths123";
+    
+    if (passcode !== correctPasscode) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ 
+          status: 'error', 
+          message: 'Unauthorized access. Invalid passcode.' 
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = sheet.getDataRange().getValues();
     
